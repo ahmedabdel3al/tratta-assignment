@@ -21278,9 +21278,9 @@ var render = function () {
           "label",
           {
             staticClass: "block text-gray-700 text-sm font-bold",
-            attrs: { for: "account_number" },
+            attrs: { for: "sms" },
           },
-          [_vm._v("\n                Call Inbound Fee\n            ")]
+          [_vm._v("\n                Sms Inbound Fee\n            ")]
         ),
         _vm._v(" "),
         _c("input", {
@@ -21294,7 +21294,7 @@ var render = function () {
           ],
           staticClass:
             "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline",
-          attrs: { type: "number", placeholder: "Sms Inbound Fee" },
+          attrs: { type: "number", id: "sms", placeholder: "Sms Inbound Fee" },
           domProps: { value: _vm.params.sms_inbound_longcode_fee },
           on: {
             input: function ($event) {
