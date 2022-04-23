@@ -40,7 +40,9 @@ class Response implements ResponseInterface
         $key = Str::of($key)->lower()->slug('_')->append('_fee');
         $fees = data_get($this->queryParameters, 'fees', []);
 
-        return data_get($fees, $key, 1);
+        $value = data_get($fees, $key, 1);
+
+        return $value == 0 ? 0 : $value ;
     }
 
     /**

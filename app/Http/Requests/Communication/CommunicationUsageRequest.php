@@ -32,8 +32,10 @@ class CommunicationUsageRequest extends FormRequest
             $dataShouldPushedToRequest['end_date'] = Carbon::now()->format('Y-m-d');
         }
 
-        $dataShouldPushedToRequest['fees']['calls_inbound_fee'] = $this->get('calls_inbound_fee', 1);
-        $dataShouldPushedToRequest['fees']['sms_inbound_longcode_fee'] = $this->get('sms_inbound_longcode_fee', 1);
+        $calls_inbound_fee = $this->get('calls_inbound_fee', 1);
+        $dataShouldPushedToRequest['fees']['calls_inbound_fee'] = is_null($calls_inbound_fee) ? 1 : $calls_inbound_fee;
+        $sms_inbound_longcode_fee = $this->get('sms_inbound_longcode_fee', 1);
+        $dataShouldPushedToRequest['fees']['sms_inbound_longcode_fee'] = is_null($sms_inbound_longcode_fee) ? 1 : $sms_inbound_longcode_fee;
 
 
         $this->merge($dataShouldPushedToRequest);
